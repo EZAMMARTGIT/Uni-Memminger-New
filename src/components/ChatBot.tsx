@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { ScrollArea } from "./ui/scroll-area";
 import { systemsData } from "../types";
+import * as React from "react";
 
 interface Message {
   id: string;

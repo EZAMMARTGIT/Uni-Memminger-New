@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Checkbox } from "./ui/checkbox";
+import * as React from "react";
 
 interface LoginPageProps {
   onLogin: () => void;
@@ -45,7 +46,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Simulate authentication
     setTimeout(() => {
       setIsLoading(false);
@@ -78,9 +79,10 @@ export function LoginPage({ onLogin }: LoginPageProps) {
             ease: "linear",
           }}
         />
-        
+
         {/* Mesh gradient overlay */}
-        <div className="absolute inset-0 opacity-30"
+        <div
+          className="absolute inset-0 opacity-30"
           style={{
             backgroundImage: `radial-gradient(circle at 20% 50%, rgba(249, 179, 0, 0.15) 0%, transparent 50%),
                             radial-gradient(circle at 80% 80%, rgba(0, 140, 186, 0.15) 0%, transparent 50%)`,
@@ -118,9 +120,19 @@ export function LoginPage({ onLogin }: LoginPageProps) {
         <div className="absolute inset-0 bg-gradient-to-br from-[#001F3D] via-[#002B5B] to-[#044C97] opacity-60" />
 
         {/* Animated circuit lines pattern */}
-        <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          className="absolute inset-0 w-full h-full opacity-20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <defs>
-            <pattern id="circuit" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+            <pattern
+              id="circuit"
+              x="0"
+              y="0"
+              width="100"
+              height="100"
+              patternUnits="userSpaceOnUse"
+            >
               <motion.path
                 d="M0,50 L20,50 L20,20 L80,20 L80,80 L100,80"
                 stroke="#F9B300"
@@ -128,7 +140,11 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                 fill="none"
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={{ pathLength: 1, opacity: 0.6 }}
-                transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                }}
               />
               <motion.circle
                 cx="20"
@@ -152,14 +168,14 @@ export function LoginPage({ onLogin }: LoginPageProps) {
         </svg>
 
         {/* Blueprint grid pattern */}
-        <div 
+        <div
           className="absolute inset-0 opacity-10"
           style={{
             backgroundImage: `
               linear-gradient(rgba(0, 140, 186, 0.3) 1px, transparent 1px),
               linear-gradient(90deg, rgba(0, 140, 186, 0.3) 1px, transparent 1px)
             `,
-            backgroundSize: '50px 50px'
+            backgroundSize: "50px 50px",
           }}
         />
 
@@ -167,14 +183,14 @@ export function LoginPage({ onLogin }: LoginPageProps) {
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
           animate={{
-            x: ['-100%', '200%'],
+            x: ["-100%", "200%"],
           }}
           transition={{
             duration: 10,
             repeat: Infinity,
             ease: "linear",
           }}
-          style={{ width: '50%' }}
+          style={{ width: "50%" }}
         />
 
         {/* Metallic light reflections */}
@@ -190,8 +206,9 @@ export function LoginPage({ onLogin }: LoginPageProps) {
             ease: "easeInOut",
           }}
           style={{
-            background: 'radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%)',
-            filter: 'blur(40px)',
+            background:
+              "radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%)",
+            filter: "blur(40px)",
           }}
         />
 
@@ -207,7 +224,12 @@ export function LoginPage({ onLogin }: LoginPageProps) {
             ease: "linear",
           }}
         >
-          <svg width="280" height="280" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            width="280"
+            height="280"
+            viewBox="0 0 280 280"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             {/* Outer ring */}
             <motion.circle
               cx="140"
@@ -217,16 +239,16 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               strokeWidth="2"
               fill="none"
               initial={{ pathLength: 0 }}
-              animate={{ 
+              animate={{
                 pathLength: 1,
-                opacity: [0.4, 0.8, 0.4]
+                opacity: [0.4, 0.8, 0.4],
               }}
-              transition={{ 
+              transition={{
                 pathLength: { duration: 2 },
-                opacity: { duration: 3, repeat: Infinity }
+                opacity: { duration: 3, repeat: Infinity },
               }}
             />
-            
+
             {/* Middle ring */}
             <motion.circle
               cx="140"
@@ -236,17 +258,17 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               strokeWidth="1.5"
               fill="none"
               strokeDasharray="5,5"
-              animate={{ 
+              animate={{
                 rotate: 360,
-                opacity: [0.5, 1, 0.5]
+                opacity: [0.5, 1, 0.5],
               }}
-              transition={{ 
+              transition={{
                 rotate: { duration: 15, repeat: Infinity, ease: "linear" },
-                opacity: { duration: 2.5, repeat: Infinity }
+                opacity: { duration: 2.5, repeat: Infinity },
               }}
-              style={{ transformOrigin: '140px 140px' }}
+              style={{ transformOrigin: "140px 140px" }}
             />
-            
+
             {/* Inner ring */}
             <motion.circle
               cx="140"
@@ -255,12 +277,12 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               stroke="#0082c8"
               strokeWidth="1"
               fill="none"
-              animate={{ 
+              animate={{
                 scale: [1, 1.05, 1],
-                opacity: [0.6, 1, 0.6]
+                opacity: [0.6, 1, 0.6],
               }}
               transition={{ duration: 2, repeat: Infinity }}
-              style={{ transformOrigin: '140px 140px' }}
+              style={{ transformOrigin: "140px 140px" }}
             />
 
             {/* Knitting needles (radial lines) */}
@@ -270,7 +292,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               const y1 = 140 + 60 * Math.sin((angle * Math.PI) / 180);
               const x2 = 140 + 120 * Math.cos((angle * Math.PI) / 180);
               const y2 = 140 + 120 * Math.sin((angle * Math.PI) / 180);
-              
+
               return (
                 <motion.line
                   key={i}
@@ -282,10 +304,10 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   strokeWidth="0.8"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: [0.2, 0.6, 0.2] }}
-                  transition={{ 
+                  transition={{
                     duration: 2,
                     repeat: Infinity,
-                    delay: i * 0.05
+                    delay: i * 0.05,
                   }}
                 />
               );
@@ -304,7 +326,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                 duration: 2,
                 repeat: Infinity,
               }}
-              style={{ transformOrigin: '140px 140px' }}
+              style={{ transformOrigin: "140px 140px" }}
             />
 
             {/* Gradient definitions */}
@@ -320,7 +342,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               const angle = (i * 360) / 8;
               const x = 140 + 90 * Math.cos((angle * Math.PI) / 180);
               const y = 140 + 90 * Math.sin((angle * Math.PI) / 180);
-              
+
               return (
                 <motion.circle
                   key={`point-${i}`}
@@ -385,8 +407,8 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1 }}
                 style={{
-                  border: '2px solid #F9B300',
-                  boxShadow: '0 0 30px rgba(249, 179, 0, 0.5)',
+                  border: "2px solid #F9B300",
+                  boxShadow: "0 0 30px rgba(249, 179, 0, 0.5)",
                 }}
               />
             )}
@@ -419,17 +441,19 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h1 className="text-white mb-3 tracking-wide text-[28px]">UNI-MEMMINGER</h1>
+          <h1 className="text-white mb-3 tracking-wide text-[28px]">
+            UNI-MEMMINGER
+          </h1>
           <p className="text-[#0082c8] mb-2 text-[16px]">
             Smart Knitting Automation
           </p>
           <p className="text-[#E6EAF1] text-[14px] leading-relaxed mb-4">
             Circular Machine System for Modern Textile Engineering
           </p>
-          
+
           {/* Animated typing tagline */}
           <div className="h-6 flex items-center justify-center">
-            <motion.p 
+            <motion.p
               className="text-[#F9B300] text-[14px] min-h-[1.5em]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -458,8 +482,9 @@ export function LoginPage({ onLogin }: LoginPageProps) {
             ease: "easeInOut",
           }}
           style={{
-            background: 'radial-gradient(circle, rgba(249, 179, 0, 0.3) 0%, transparent 70%)',
-            filter: 'blur(30px)',
+            background:
+              "radial-gradient(circle, rgba(249, 179, 0, 0.3) 0%, transparent 70%)",
+            filter: "blur(30px)",
           }}
         />
 
@@ -485,11 +510,13 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           >
             {/* Simplified mobile background */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#001F3D]/30 to-[#044C97]/30 lg:hidden" />
-            
+
             <div className="flex h-20 w-20 items-center justify-center rounded-xl bg-gradient-to-br from-[#F9B300] to-[#FFD60A] border-2 border-white/20 shadow-xl mb-4 relative z-10">
               <span className="text-[#012A63] text-[24px]">UM</span>
             </div>
-            <h2 className="text-white text-center relative z-10">UNI-MEMMINGER</h2>
+            <h2 className="text-white text-center relative z-10">
+              UNI-MEMMINGER
+            </h2>
             <p className="text-[#E6EAF1]/80 text-[14px] text-center mt-1 relative z-10">
               Smart Knitting Automation
             </p>
@@ -504,11 +531,13 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           >
             {/* Card glow effect */}
             <div className="absolute -inset-1 bg-gradient-to-r from-[#F9B300]/25 via-transparent to-[#F9B300]/25 rounded-[21px] blur-xl opacity-75" />
-            
+
             {/* Main card */}
             <div className="relative bg-white/10 backdrop-blur-xl rounded-[20px] p-8 border border-white/20 shadow-2xl">
               <div className="mb-6">
-                <h2 className="text-white mb-2 hidden lg:block">Welcome Back</h2>
+                <h2 className="text-white mb-2 hidden lg:block">
+                  Welcome Back
+                </h2>
                 <p className="text-[#E6EAF1]/70 text-[14px]">
                   Sign in to access the UNI-MEMMINGER system
                 </p>
@@ -517,7 +546,10 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Username Field */}
                 <div className="space-y-2">
-                  <Label htmlFor="username" className="text-[#E6EAF1] text-[14px]">
+                  <Label
+                    htmlFor="username"
+                    className="text-[#E6EAF1] text-[14px]"
+                  >
                     Username
                   </Label>
                   <div className="relative group">
@@ -536,7 +568,10 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
                 {/* Password Field */}
                 <div className="space-y-2">
-                  <Label htmlFor="password" className="text-[#E6EAF1] text-[14px]">
+                  <Label
+                    htmlFor="password"
+                    className="text-[#E6EAF1] text-[14px]"
+                  >
                     Password
                   </Label>
                   <div className="relative group">
@@ -558,7 +593,9 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   <Checkbox
                     id="remember"
                     checked={rememberMe}
-                    onCheckedChange={(checked) => setRememberMe(checked as boolean)}
+                    onCheckedChange={(checked) =>
+                      setRememberMe(checked as boolean)
+                    }
                     className="border-white/30 data-[state=checked]:bg-[#F9B300] data-[state=checked]:border-[#F9B300]"
                   />
                   <label
@@ -580,7 +617,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                     className="absolute inset-0 bg-gradient-to-r from-[#F9B300] to-[#044C97] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     initial={false}
                   />
-                  
+
                   <span className="relative flex items-center justify-center gap-2">
                     {isLoading ? (
                       <>

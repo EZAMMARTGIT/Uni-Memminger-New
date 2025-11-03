@@ -1,22 +1,22 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { 
-  Settings, 
-  Globe, 
-  Recycle, 
-  Target, 
-  Users, 
-  Award, 
+import {
+  Settings,
+  Globe,
+  Recycle,
+  Target,
+  Users,
+  Award,
   TrendingUp,
   MapPin,
   ChevronDown,
   CheckCircle,
-  ArrowRight
+  ArrowRight,
 } from "lucide-react";
 import { Button } from "./ui/button";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import globalMapImage from "figma:asset/cb954b9a7e3b9536b40f38c1deb7e34956998c3d.png";
-
+import * as React from "react";
+import globalMapImage from "../assets/cb954b9a7e3b9536b40f38c1deb7e34956998c3d.png";
 interface AboutPageProps {
   onClose: () => void;
 }
@@ -38,53 +38,57 @@ export function AboutPage({ onClose }: AboutPageProps) {
       icon: <TrendingUp className="w-8 h-8" />,
       title: "Innovation First",
       description: "We embrace continuous development and R&D excellence.",
-      color: "from-cyan-500 to-blue-600"
+      color: "from-cyan-500 to-blue-600",
     },
     {
       icon: <Settings className="w-8 h-8" />,
       title: "Precision Engineering",
       description: "Every component meets the highest quality standards.",
-      color: "from-blue-600 to-indigo-600"
+      color: "from-blue-600 to-indigo-600",
     },
     {
       icon: <Users className="w-8 h-8" />,
       title: "Customer Commitment",
       description: "We grow through long-term partnerships.",
-      color: "from-indigo-600 to-purple-600"
+      color: "from-indigo-600 to-purple-600",
     },
     {
       icon: <Globe className="w-8 h-8" />,
       title: "Global Network",
       description: "Our systems power textile factories worldwide.",
-      color: "from-purple-600 to-pink-600"
-    }
+      color: "from-purple-600 to-pink-600",
+    },
   ];
 
   const timeline = [
     {
       decade: "1970s",
       title: "Foundation of UNI-MEMMINGER",
-      description: "Established with a vision to revolutionize textile machinery through German engineering excellence.",
-      icon: <Award className="w-6 h-6" />
+      description:
+        "Established with a vision to revolutionize textile machinery through German engineering excellence.",
+      icon: <Award className="w-6 h-6" />,
     },
     {
       decade: "1980s",
       title: "First Electronic Knitting Control System",
-      description: "Pioneered digital automation in circular knitting with groundbreaking control technology.",
-      icon: <Settings className="w-6 h-6" />
+      description:
+        "Pioneered digital automation in circular knitting with groundbreaking control technology.",
+      icon: <Settings className="w-6 h-6" />,
     },
     {
       decade: "2000s",
       title: "Global Expansion Across Asia",
-      description: "Extended operations to key textile manufacturing hubs, establishing strong international presence.",
-      icon: <Globe className="w-6 h-6" />
+      description:
+        "Extended operations to key textile manufacturing hubs, establishing strong international presence.",
+      icon: <Globe className="w-6 h-6" />,
     },
     {
       decade: "2020s",
       title: "Smart ERP Integration & Automation",
-      description: "Integrated AI-driven systems and Industry 4.0 technologies for next-generation smart factories.",
-      icon: <TrendingUp className="w-6 h-6" />
-    }
+      description:
+        "Integrated AI-driven systems and Industry 4.0 technologies for next-generation smart factories.",
+      icon: <TrendingUp className="w-6 h-6" />,
+    },
   ];
 
   const leadership = [
@@ -92,44 +96,59 @@ export function AboutPage({ onClose }: AboutPageProps) {
       name: "Dr. Klaus Müller",
       title: "Chief Technology Officer",
       specialty: "Automation & AI Systems",
-      image: "https://images.unsplash.com/photo-1758518731468-98e90ffd7430?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHRlYW0lMjBwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjA3NjkwNTd8MA&ixlib=rb-4.1.0&q=80&w=400"
+      image:
+        "https://images.unsplash.com/photo-1758518731468-98e90ffd7430?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHRlYW0lMjBwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjA3NjkwNTd8MA&ixlib=rb-4.1.0&q=80&w=400",
     },
     {
       name: "Maria Schmidt",
       title: "VP of Global Sales",
       specialty: "International Markets",
-      image: "https://images.unsplash.com/photo-1758518731468-98e90ffd7430?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHRlYW0lMjBwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjA3NjkwNTd8MA&ixlib=rb-4.1.0&q=80&w=400"
+      image:
+        "https://images.unsplash.com/photo-1758518731468-98e90ffd7430?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHRlYW0lMjBwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjA3NjkwNTd8MA&ixlib=rb-4.1.0&q=80&w=400",
     },
     {
       name: "Johann Weber",
       title: "Director of R&D",
       specialty: "Precision Engineering",
-      image: "https://images.unsplash.com/photo-1758518731468-98e90ffd7430?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHRlYW0lMjBwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjA3NjkwNTd8MA&ixlib=rb-4.1.0&q=80&w=400"
-    }
+      image:
+        "https://images.unsplash.com/photo-1758518731468-98e90ffd7430?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHRlYW0lMjBwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjA3NjkwNTd8MA&ixlib=rb-4.1.0&q=80&w=400",
+    },
   ];
 
   const regions = [
-    { name: "Germany (HQ)", location: "Stuttgart", services: "R&D, Manufacturing, Global Support" },
-    { name: "Asia Pacific", location: "Shanghai", services: "Regional Sales, Technical Service" },
+    {
+      name: "Germany (HQ)",
+      location: "Stuttgart",
+      services: "R&D, Manufacturing, Global Support",
+    },
+    {
+      name: "Asia Pacific",
+      location: "Shanghai",
+      services: "Regional Sales, Technical Service",
+    },
     { name: "Europe", location: "Milan", services: "Sales & Distribution" },
-    { name: "Middle East", location: "Dubai", services: "Market Development" }
+    { name: "Middle East", location: "Dubai", services: "Market Development" },
   ];
 
   const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
-    ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#001E4D] via-[#002B5B] to-[#044C97] overflow-y-auto">
       {/* 1️⃣ Hero Section - Premium Engineering Style */}
-      <section ref={heroRef} className="relative flex items-center justify-center overflow-hidden" style={{ height: '90vh' }}>
+      <section
+        ref={heroRef}
+        className="relative flex items-center justify-center overflow-hidden"
+        style={{ height: "90vh" }}
+      >
         {/* Blue Gradient Background with Blueprint Texture */}
         <div className="absolute inset-0">
           {/* Primary Blue Gradient */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#007BFF] via-[#0066E0] to-[#0056D2]" />
-          
+
           {/* Blueprint Pattern Overlay */}
-          <div 
+          <div
             className="absolute inset-0 opacity-[0.08]"
             style={{
               backgroundImage: `
@@ -138,8 +157,8 @@ export function AboutPage({ onClose }: AboutPageProps) {
                 linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)
               `,
-              backgroundSize: '100px 100px, 100px 100px, 20px 20px, 20px 20px',
-              backgroundPosition: '-2px -2px, -2px -2px, -1px -1px, -1px -1px'
+              backgroundSize: "100px 100px, 100px 100px, 20px 20px, 20px 20px",
+              backgroundPosition: "-2px -2px, -2px -2px, -1px -1px, -1px -1px",
             }}
           />
 
@@ -153,11 +172,11 @@ export function AboutPage({ onClose }: AboutPageProps) {
               duration: 30,
               repeat: Infinity,
               repeatType: "reverse",
-              ease: "linear"
+              ease: "linear",
             }}
             style={{
               backgroundImage: `url('data:image/svg+xml,<svg width="80" height="80" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="35" stroke="white" stroke-width="1" fill="none"/><circle cx="40" cy="40" r="25" stroke="white" stroke-width="1" fill="none"/><line x1="40" y1="5" x2="40" y2="15" stroke="white" stroke-width="1"/><line x1="40" y1="65" x2="40" y2="75" stroke="white" stroke-width="1"/><line x1="5" y1="40" x2="15" y2="40" stroke="white" stroke-width="1"/><line x1="65" y1="40" x2="75" y2="40" stroke="white" stroke-width="1"/></svg>')`,
-              backgroundSize: '80px 80px'
+              backgroundSize: "80px 80px",
             }}
           />
 
@@ -182,7 +201,9 @@ export function AboutPage({ onClose }: AboutPageProps) {
               >
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
                   <Settings className="w-4 h-4 text-white" />
-                  <span className="text-white/90 text-[13px]">German Precision Engineering</span>
+                  <span className="text-white/90 text-[13px]">
+                    German Precision Engineering
+                  </span>
                 </div>
               </motion.div>
 
@@ -192,8 +213,16 @@ export function AboutPage({ onClose }: AboutPageProps) {
                 animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 1, delay: 0.3 }}
               >
-                <h1 className="text-white leading-tight mb-6" style={{ fontSize: '3.5rem', fontWeight: '700', letterSpacing: '-0.02em' }}>
-                  Engineering the Future of <span className="text-[#FFD60A]">Textile Innovation</span>
+                <h1
+                  className="text-white leading-tight mb-6"
+                  style={{
+                    fontSize: "3.5rem",
+                    fontWeight: "700",
+                    letterSpacing: "-0.02em",
+                  }}
+                >
+                  Engineering the Future of{" "}
+                  <span className="text-[#FFD60A]">Textile Innovation</span>
                 </h1>
               </motion.div>
 
@@ -203,8 +232,13 @@ export function AboutPage({ onClose }: AboutPageProps) {
                 animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 1, delay: 0.5 }}
               >
-                <p className="text-white/80 text-[18px] leading-relaxed max-w-xl" style={{ fontWeight: '300' }}>
-                  For over 50 years, UNI-MEMMINGER has combined German precision and global expertise to deliver high-performance circular knitting technology.
+                <p
+                  className="text-white/80 text-[18px] leading-relaxed max-w-xl"
+                  style={{ fontWeight: "300" }}
+                >
+                  For over 50 years, UNI-MEMMINGER has combined German precision
+                  and global expertise to deliver high-performance circular
+                  knitting technology.
                 </p>
               </motion.div>
 
@@ -245,7 +279,7 @@ export function AboutPage({ onClose }: AboutPageProps) {
             >
               {/* Decorative Elements */}
               <div className="absolute -inset-4 bg-gradient-to-r from-white/10 to-blue-400/10 rounded-3xl blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              
+
               {/* Main Image Container */}
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
                 <motion.div
@@ -257,7 +291,7 @@ export function AboutPage({ onClose }: AboutPageProps) {
                     alt="UNI-MEMMINGER Textile Machinery"
                     className="w-full h-full object-cover aspect-[4/3]"
                   />
-                  
+
                   {/* Overlay Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0056D2]/40 via-transparent to-transparent opacity-60" />
                 </motion.div>
@@ -274,8 +308,15 @@ export function AboutPage({ onClose }: AboutPageProps) {
                       <Settings className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <div className="text-[#001E4D] text-[15px]" style={{ fontWeight: '600' }}>Industry Leading</div>
-                      <div className="text-[#666] text-[13px]">50+ Years of Excellence</div>
+                      <div
+                        className="text-[#001E4D] text-[15px]"
+                        style={{ fontWeight: "600" }}
+                      >
+                        Industry Leading
+                      </div>
+                      <div className="text-[#666] text-[13px]">
+                        50+ Years of Excellence
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -294,7 +335,9 @@ export function AboutPage({ onClose }: AboutPageProps) {
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <span className="text-white/60 text-[12px] tracking-wider uppercase">Scroll to Explore</span>
+          <span className="text-white/60 text-[12px] tracking-wider uppercase">
+            Scroll to Explore
+          </span>
           <ChevronDown className="w-6 h-6 text-white/60" />
         </motion.div>
       </section>
@@ -319,7 +362,8 @@ export function AboutPage({ onClose }: AboutPageProps) {
                   <h2 className="text-[#F9B300]">Our Mission</h2>
                 </div>
                 <p className="text-[#F5F8FF] text-[16px] leading-relaxed">
-                  "To revolutionize circular knitting through intelligent automation and sustainable precision."
+                  "To revolutionize circular knitting through intelligent
+                  automation and sustainable precision."
                 </p>
               </div>
             </div>
@@ -369,7 +413,9 @@ export function AboutPage({ onClose }: AboutPageProps) {
               >
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-[#F9B300]/0 to-[#F9B300]/0 group-hover:from-[#F9B300]/50 group-hover:to-[#FFD60A]/50 rounded-2xl blur-xl transition-all duration-500" />
                 <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 group-hover:border-[#F9B300]/50 transition-all duration-300 h-full">
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${value.color} flex items-center justify-center mb-4 text-white`}>
+                  <div
+                    className={`w-14 h-14 rounded-xl bg-gradient-to-br ${value.color} flex items-center justify-center mb-4 text-white`}
+                  >
                     {value.icon}
                   </div>
                   <h3 className="text-white mb-3 text-[18px]">{value.title}</h3>
@@ -412,19 +458,27 @@ export function AboutPage({ onClose }: AboutPageProps) {
                 <div className="flex items-center gap-6">
                   {/* Decade Badge */}
                   <div className="flex-shrink-0 w-24 h-24 rounded-xl bg-gradient-to-br from-[#F9B300] to-[#FFD60A] flex items-center justify-center shadow-lg">
-                    <span className="text-[#001E4D] text-[18px]">{item.decade}</span>
+                    <span className="text-[#001E4D] text-[18px]">
+                      {item.decade}
+                    </span>
                   </div>
 
                   {/* Content */}
                   <div className="flex-1 relative group">
-                    <div className={`absolute -inset-1 bg-gradient-to-r from-[#F9B300]/20 to-cyan-500/20 rounded-2xl blur-xl transition-opacity duration-500 ${activeTimeline === index ? 'opacity-100' : 'opacity-0'}`} />
+                    <div
+                      className={`absolute -inset-1 bg-gradient-to-r from-[#F9B300]/20 to-cyan-500/20 rounded-2xl blur-xl transition-opacity duration-500 ${
+                        activeTimeline === index ? "opacity-100" : "opacity-0"
+                      }`}
+                    />
                     <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 group-hover:border-[#F9B300]/50 transition-all duration-300">
                       <div className="flex items-start gap-4">
                         <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white flex-shrink-0">
                           {item.icon}
                         </div>
                         <div>
-                          <h3 className="text-white mb-2 text-[18px]">{item.title}</h3>
+                          <h3 className="text-white mb-2 text-[18px]">
+                            {item.title}
+                          </h3>
                           <p className="text-[#F5F8FF]/70 text-[14px] leading-relaxed">
                             {item.description}
                           </p>
@@ -480,8 +534,12 @@ export function AboutPage({ onClose }: AboutPageProps) {
                     />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-white mb-1 text-[18px]">{leader.name}</h3>
-                    <p className="text-[#F9B300] text-[14px] mb-3">{leader.title}</p>
+                    <h3 className="text-white mb-1 text-[18px]">
+                      {leader.name}
+                    </h3>
+                    <p className="text-[#F9B300] text-[14px] mb-3">
+                      {leader.title}
+                    </p>
                     <div className="flex items-center gap-2 text-[#F5F8FF]/70 text-[13px]">
                       <CheckCircle className="w-4 h-4 text-cyan-400" />
                       <span>{leader.specialty}</span>
@@ -511,7 +569,7 @@ export function AboutPage({ onClose }: AboutPageProps) {
           </motion.div>
 
           {/* Map Visual */}
-          <motion.div 
+          <motion.div
             className="relative bg-white rounded-3xl p-8 md:p-12 border border-white/20 mb-8 overflow-hidden shadow-2xl"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -519,8 +577,8 @@ export function AboutPage({ onClose }: AboutPageProps) {
             transition={{ duration: 0.8 }}
           >
             <div className="relative aspect-[16/10] flex items-center justify-center">
-              <img 
-                src={globalMapImage} 
+              <img
+                src={globalMapImage}
                 alt="Global Footprint - UNI-MEMMINGER Worldwide Presence"
                 className="w-full h-full object-contain"
               />
@@ -540,8 +598,12 @@ export function AboutPage({ onClose }: AboutPageProps) {
               >
                 <MapPin className="w-8 h-8 text-[#F9B300] mb-4" />
                 <h3 className="text-white mb-2 text-[16px]">{region.name}</h3>
-                <p className="text-cyan-400 text-[14px] mb-3">{region.location}</p>
-                <p className="text-[#F5F8FF]/60 text-[13px]">{region.services}</p>
+                <p className="text-cyan-400 text-[14px] mb-3">
+                  {region.location}
+                </p>
+                <p className="text-[#F5F8FF]/60 text-[13px]">
+                  {region.services}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -583,16 +645,18 @@ export function AboutPage({ onClose }: AboutPageProps) {
                 </div>
                 <h2 className="text-white">Sustainability & Future Focus</h2>
               </div>
-              
+
               <p className="text-[#F5F8FF] text-[18px] leading-relaxed mb-6">
-                "Our technology is built for efficiency, sustainability, and reduced material waste — empowering a greener textile future."
+                "Our technology is built for efficiency, sustainability, and
+                reduced material waste — empowering a greener textile future."
               </p>
-              
+
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-[#F9B300] flex-shrink-0 mt-1" />
                   <p className="text-[#F5F8FF]/80 text-[15px]">
-                    Energy-efficient machinery reducing carbon footprint by up to 30%
+                    Energy-efficient machinery reducing carbon footprint by up
+                    to 30%
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
@@ -604,7 +668,8 @@ export function AboutPage({ onClose }: AboutPageProps) {
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-[#F9B300] flex-shrink-0 mt-1" />
                   <p className="text-[#F5F8FF]/80 text-[15px]">
-                    Recyclable components and eco-friendly manufacturing processes
+                    Recyclable components and eco-friendly manufacturing
+                    processes
                   </p>
                 </div>
               </div>
@@ -626,9 +691,10 @@ export function AboutPage({ onClose }: AboutPageProps) {
               Engineering Smart Solutions for a Connected Textile World
             </h1>
             <p className="text-[#F5F8FF]/70 text-[18px] mb-10 max-w-2xl mx-auto">
-              Join us in shaping the future of textile manufacturing through innovation, precision, and sustainable excellence.
+              Join us in shaping the future of textile manufacturing through
+              innovation, precision, and sustainable excellence.
             </p>
-            
+
             <Button
               onClick={onClose}
               className="bg-[#F9B300] hover:bg-[#FFD60A] text-[#001E4D] h-14 px-10 rounded-lg shadow-2xl transition-all duration-300 group text-[16px]"

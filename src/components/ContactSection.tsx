@@ -6,7 +6,8 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
 import { useState } from "react";
-import { toast } from "sonner@2.0.3";
+import { toast } from "sonner";
+import * as React from "react";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({

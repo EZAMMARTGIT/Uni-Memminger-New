@@ -101,7 +101,6 @@ export function ProductBars({ onCategorySelect }: ProductBarsProps) {
   return (
     <section className="relative py-16 bg-white/5 dark:bg-slate-900/10">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
         <motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -124,7 +123,7 @@ export function ProductBars({ onCategorySelect }: ProductBarsProps) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {featuredProducts.map((product, index) => (
             <ProductBar
-              key={product.id}
+              // key={product.id}
               id={product.id}
               title={product.title}
               image={product.image}

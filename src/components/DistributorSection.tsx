@@ -8,6 +8,7 @@ import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { WorldMap } from "./WorldMap";
 import { existingDistributors } from "../types/distributors";
+import * as React from "react";
 
 export function DistributorSection() {
   const [formData, setFormData] = useState({
