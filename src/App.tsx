@@ -6,6 +6,7 @@ import { SystemCard } from "./components/SystemCard";
 import { SystemDetail } from "./components/SystemDetail";
 import { VerificationDialog } from "./components/VerificationDialog";
 import { DistributorSection } from "./components/DistributorSection";
+import { LatestProductsSection } from "./components/LatestProductsSection";
 import { ChatBot } from "./components/ChatBot";
 import { Footer } from "./components/Footer";
 import { WelcomePage } from "./components/WelcomePage";
@@ -13,6 +14,7 @@ import { LoginPage } from "./components/LoginPage";
 import { AboutPage } from "./components/AboutPage";
 import { TechnologyServicePage } from "./components/TechnologyServicePage";
 import { ProductDetailPage } from "./components/ProductDetailPage";
+import ProductListingPage from "./components/ProductListingPage";
 import { systemsData } from "./types";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs";
 import { Toaster } from "./components/ui/sonner";
@@ -22,6 +24,7 @@ export default function App() {
   const [showLoginPage, setShowLoginPage] = useState(false);
   const [showAboutPage, setShowAboutPage] = useState(false);
   const [showTechServicePage, setShowTechServicePage] = useState(false);
+  const [showProductsPage, setShowProductsPage] = useState(false);
   const [showProductDetail, setShowProductDetail] = useState(false);
   const [selectedProductCode, setSelectedProductCode] = useState<string>("A1");
   const [showWelcome, setShowWelcome] = useState(true);
@@ -79,6 +82,29 @@ export default function App() {
     return <ProductDetailPage productCode={selectedProductCode} onClose={() => setShowProductDetail(false)} />;
   }
 
+  // Show products listing page when requested
+  if (showProductsPage) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Header
+          onVerificationClick={() => setVerificationOpen(true)}
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          isAuthenticated={isAuthenticated}
+          onLoginClick={() => setShowLoginPage(true)}
+          onLogout={handleLogout}
+          onAboutClick={() => setShowAboutPage(true)}
+          onTechServiceClick={() => setShowTechServicePage(true)}
+          onProductsClick={() => setShowProductsPage(false)}
+        />
+        <ProductListingPage />
+        <Footer />
+        <ChatBot />
+        <Toaster />
+      </div>
+    );
+  }
+
   // Show technology & service page when requested
   if (showTechServicePage) {
     return <TechnologyServicePage onClose={() => setShowTechServicePage(false)} />;
@@ -113,16 +139,17 @@ export default function App() {
         onLogout={handleLogout}
         onAboutClick={() => setShowAboutPage(true)}
         onTechServiceClick={() => setShowTechServicePage(true)}
+        onProductsClick={() => setShowProductsPage(true)}
       />
 
       <Hero />
 
       <ProductBars onCategorySelect={(id) => setActiveTab(id)} />
 
-      <main id="product-classification" className="flex-1 container mx-auto px-4 py-12 relative">
+      <main id="product-classification" className="flex-1 container mx-auto px-4 py-12 relative bg-gradient-to-b from-[#001a3d] to-[#002B5B]">
         <div className="mb-8">
-          <h2 className="mb-2">Product Classification System</h2>
-          <p className="text-muted-foreground">
+          <h2 className="mb-2 text-white">Product Classification System</h2>
+          <p className="text-white/80">
             Browse our comprehensive range of systems and components for circular knitting machines
           </p>
         </div>
@@ -169,6 +196,8 @@ export default function App() {
           </div>
         )}
       </main>
+
+      <LatestProductsSection />
 
       <DistributorSection />
 

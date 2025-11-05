@@ -99,8 +99,9 @@ export function ProductBars({ onCategorySelect }: ProductBarsProps) {
   ];
 
   return (
-    <section className="relative py-16 bg-white/5 dark:bg-slate-900/10">
+    <section className="relative py-16 bg-gradient-to-b from-[#002B5B] to-[#001a3d]">
       <div className="container mx-auto px-4">
+        {/* Section Header */}
         <motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -108,13 +109,13 @@ export function ProductBars({ onCategorySelect }: ProductBarsProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-[#FFB703]/10 to-[#FB8500]/10 border border-[#FFB703]/20 mb-4">
+          <div className="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-[#FFB703]/20 to-[#FB8500]/20 border border-[#FFB703]/30 mb-4">
             <span className="text-[14px]" style={{ color: '#FFB703' }}>Featured Systems</span>
           </div>
-          <h2 className="text-[32px] mb-3" style={{ color: '#002B5B' }}>
+          <h2 className="text-[32px] mb-3 text-white">
             Our Main Product Lines
           </h2>
-          <p className="text-[16px] max-w-2xl mx-auto" style={{ color: '#6B7280' }}>
+          <p className="text-[16px] max-w-2xl mx-auto text-white/90">
             Industry-leading circular knitting machine systems engineered for precision and performance
           </p>
         </motion.div>
@@ -148,7 +149,7 @@ export function ProductBars({ onCategorySelect }: ProductBarsProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <p className="text-[14px]" style={{ color: '#6B7280' }}>
+          <p className="text-[14px] text-white/80">
             Looking for specific components?{" "}
             <button
               onClick={() => {
